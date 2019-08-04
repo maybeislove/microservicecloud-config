@@ -1,0 +1,77 @@
+﻿spring:
+  profiles:
+    active:
+    -dev 
+---
+
+server:
+  port: 8001
+  
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-detp-client
+  datasource:  
+   type:  com.alibaba.druid.pool.DruidDataSource                           #datasource類型
+   driver-class-name:  org.gjt.mm.mysql.Driver                             #mysql driver
+   url:  jdbc:mysql://localhost:3306/cloudDB01                             #db位置
+   username: root
+   password: phurwp1
+   dbcp2:                                                                  #連線池配置
+    min-idle: 5                                                            #最小維持連接數
+    initial-size: 5                                                        #初始化連接數
+    max-total:  5                                                          #最大連接數
+    max-wait-millis:  200                                                  #等待連接獲取最大超時時間
+    
+mybatis: 
+  config-location:  classpath:mybatis/mybatis.cfg.xml                      #mybatis配置文件所在路徑
+  type-aliases-package: com.sky.springcloud.entity                         #所有entity所在packagr
+  mapper-locations: 
+  - classpath:mybatis/mapper/**/*.xml                                      #mapper映射文件
+  
+  
+eureka:
+   client:
+      service-url:
+        defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  #集群配置
+         #defaultZone: http://localhost:7001/eureka                       #單機配置 
+   instance:
+      instance-id: microservicecloud-dept8001                             #修改instance在eureka裡面的名稱
+      prefer-ip-address: true       
+
+---
+
+server:
+  port: 8001
+  
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-detp-client
+  datasource:  
+   type:  com.alibaba.druid.pool.DruidDataSource                           #datasource類型
+   driver-class-name:  org.gjt.mm.mysql.Driver                             #mysql driver
+   url:  jdbc:mysql://localhost:3306/cloudDB01                             #db位置
+   username: root
+   password: phurwp1
+   dbcp2:                                                                  #連線池配置
+    min-idle: 5                                                            #最小維持連接數
+    initial-size: 5                                                        #初始化連接數
+    max-total:  5                                                          #最大連接數
+    max-wait-millis:  200                                                  #等待連接獲取最大超時時間
+    
+mybatis: 
+  config-location:  classpath:mybatis/mybatis.cfg.xml                      #mybatis配置文件所在路徑
+  type-aliases-package: com.sky.springcloud.entity                         #所有entity所在packagr
+  mapper-locations: 
+  - classpath:mybatis/mapper/**/*.xml                                      #mapper映射文件
+  
+  
+eureka:
+   client:
+      service-url:
+        defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  #集群配置
+         #defaultZone: http://localhost:7001/eureka                       #單機配置 
+   instance:
+      instance-id: microservicecloud-dept8001                             #修改instance在eureka裡面的名稱
+      prefer-ip-address: true       

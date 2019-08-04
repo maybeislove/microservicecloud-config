@@ -1,0 +1,42 @@
+﻿spring:
+  profiles: 
+    active:
+    - dev
+---  
+server:
+   port: 7001  
+
+spring:
+  profiles: dev
+  application:
+      name: microservicecloud-config-eureka-client
+
+eureka:
+   instance:
+      hostname: eureka7001.com #eureka  服務端實例名稱
+   client:
+      register-with-eureka:   false  #FALSE表示不向注冊中心注冊自已
+      fetch-registry:   false #FALSE表示自已就是注冊中心，職責是維護注冊端實例，不檢索服務
+      service-url:
+         defaultZone: http://eureka7001.com:7001/eureka/
+#配置euraka的地址查訊服務和注冊服務需依賴這個地址
+
+---
+server:
+   port: 7001  
+
+spring:
+  profiles: test
+  application:
+      name: microservicecloud-config-eureka-client
+
+eureka:
+  instance:
+    hostnme: eureka7001.com 
+  client:
+    register-with-eureka:   false  #FALSE表示不向注冊中心注冊自已
+    fetch-registry:   false #FALSE表示自已就是注冊中心，職責是維護注冊端實例，不檢索服務
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/       
+           
+           
