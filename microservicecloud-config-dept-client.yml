@@ -51,7 +51,7 @@ spring:
   datasource:  
    type:  com.alibaba.druid.pool.DruidDataSource                           #datasource類型
    driver-class-name:  org.gjt.mm.mysql.Driver                             #mysql driver
-   url:  jdbc:mysql://localhost:3306/cloudDB01                             #db位置
+   url:  jdbc:mysql://localhost:3306/cloudDB02                             #db位置
    username: root
    password: phurwp1
    dbcp2:                                                                  #連線池配置
