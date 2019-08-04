@@ -1,16 +1,16 @@
 ﻿spring:
-	profiles:
-		active:
-		- dev
+ profiles:
+  active:
+  - dev
 ---
 spring:
-	profiles: dev   #開發環境
-	application:
-		name: microservicecloud-config-sky-dev
+ profiles: dev   #開發環境
+ application:
+  name: microservicecloud-config-sky-dev
 ---		
 spring: 
-	profiles: test  #測試環境
-	application:
-		name: microservicecloud-config-sky-sit
+ profiles: test  #測試環境
+ application:
+  name: microservicecloud-config-sky-sit
 		
 #必存為utf-8
